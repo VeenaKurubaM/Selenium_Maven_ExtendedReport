@@ -1,0 +1,6 @@
+testcases\BaseClass.class
+testcases\SimplilearnLoginTest.class
+pages\LoginPage.class
+testcases\SampleClass.class
+pages\HomePage.class
+testcases\HomeTest.class
