@@ -3,6 +3,7 @@ package testcases;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.ss.util.CellReference;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,49 +14,48 @@ import org.testng.annotations.Test;
 
 import pages.LoginPage;
 
-public class SimplilearnLoginTest extends BaseClass {
-//eact method heere we treat as test case
-	// Base class neede for all before and after method invocations before we start
-	// methods
-	// we need to convert project as testng to get testng xml which can be used to
-	// run as suits
-
+public class SimplilearnLoginTest extends BaseClass{
+	
+	//eact method heere we treat as test case
+	
 	@Test
 	public void Test1() {
-
-		LoginPage LP = new LoginPage(driver);
-		LP.Login("abc@xyz.com", "ABC@1234");
-
-		// Step 7: Validating error message on screen
-
-		WebElement errorMessage = driver.findElement(By.id("msg_box"));
-		String ActualErrorMessage = errorMessage.getText();
-
-		String ExpectedErrorMessage = "The email or password you have entered is invalid.";
-
-		Assert.assertTrue(errorMessage.isDisplayed());
-		// Assert.assertFalse(errorMessage.isDisplayed());
-		Assert.assertEquals(ActualErrorMessage, ExpectedErrorMessage);
-
+		
+		//LoginPage lp = new LoginPage(driver);
+		LoginPage lp=new LoginPage(driver);
+		lp.Login("abc@xyz.com","Abc@1234");
+		
+		//Step6: Validate the error message on screen
+		WebElement Error = driver.findElement(By.id("msg_box"));
+		
+		String ActError = Error.getText();
+		String ExpError = "The email or password you have entered is invalid.";
+		
+		Assert.assertTrue(Error.isDisplayed());
+		Assert.assertEquals(ActError, ExpError);
+			
 	}
-
+	
 	@Test
-	@Parameters({ "uname", "pwd" })
+	@Parameters({"uname","pwd"})
 	public void Test2(String UserName, String Password) {
-
-		LoginPage LP = new LoginPage(driver);
-		LP.Login(UserName, Password);
-
+		
+		LoginPage lp = new LoginPage(driver);
+		lp.Login(UserName,Password);
 	}
-
+	
 	@Test
-
 	public void Test3() {
-
-		LoginPage LP = new LoginPage(driver);
+		
+		
+		
 		String UserName = sheet.getRow(1).getCell(0).getStringCellValue();
 		String Password = sheet.getRow(1).getCell(1).getStringCellValue();
-		LP.Login(UserName, Password);
-
+		
+		LoginPage lp = new LoginPage(driver);
+		lp.Login(UserName,Password);
 	}
+	
+	
+
 }

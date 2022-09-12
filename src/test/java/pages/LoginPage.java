@@ -9,6 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import testcases.BaseClass;
 
 //page class is useful to have all reusable code of that specific page
+//eact method heere we treat as test case
+	// Base class neede for all before and after method invocations before we start
+	// methods
+	// we need to convert project as testng to get testng xml which can be used to
+	// run as suits
 public class LoginPage {
 
 	WebDriver driver;
@@ -48,13 +53,14 @@ public class LoginPage {
 
 		// Step 3: entering text
 
-		userName.sendKeys("abd@xyz.com");
+		userName.sendKeys(UserNameVal);
 
 		// Step 4: entring password
 
-		password.sendKeys("Testoing@123");
+		password.sendKeys(PassVal);
 
 		// Step 5: Clicking on Rememberme
+		
 
 		checkBox.click();
 
